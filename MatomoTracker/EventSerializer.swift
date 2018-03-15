@@ -35,6 +35,7 @@ fileprivate extension Event {
             let items = [
             
             URLQueryItem(name: "ua", value: UserAgent.uaString ?? ""),
+            URLQueryItem(name: "res", value: UserAgent.screenSize),
             
             URLQueryItem(name: "idsite", value: siteId),
             URLQueryItem(name: "rec", value: "1"),
