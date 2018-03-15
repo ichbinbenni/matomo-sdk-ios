@@ -56,7 +56,7 @@ extension Device {
     
     /// Returns a human readable version of the current platform name i.e. "iPhone 6 Plus" or "iPad Air 2 (WiFi)"
     /// Will return nil, if no human readable string could be found for the current platform
-    private static func humanReadablePlatformNameForCurrentDevice() -> String? {
+    static func humanReadablePlatformNameForCurrentDevice() -> String? {
         let platform = currentPlatform()
         switch platform {
             

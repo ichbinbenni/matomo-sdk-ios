@@ -9,8 +9,13 @@
 import UIKit
 
 struct UserAgent {
+    /// Attention! This string only works on iPhones!
     static var uaString: String? {
+        //  - some : "Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E5211a"
         let webView = UIWebView(frame: CGRect.zero)
-        return  webView.stringByEvaluatingJavaScript(from: "navigator.userAgent")
+        guard var  userAgentString = webView.stringByEvaluatingJavaScript(from: "navigator.userAgent") else { return nil }
+        
+        userAgentString = userAgentString.replacingOccurrences(of: "iPhone;", with: (Device.humanReadablePlatformNameForCurrentDevice() ?? "iPhone") + ";")
+        return userAgentString
     }
 }
