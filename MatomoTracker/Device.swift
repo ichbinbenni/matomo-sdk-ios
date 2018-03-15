@@ -47,6 +47,7 @@ extension Device {
     /// The platform name of the current device i.e. "iPhone1,1" or "iPad3,6"
     private static func currentPlatform() -> String  {
         var size = 0
+        
         sysctlbyname("hw.machine", nil, &size, nil, 0)
         var machine = [CChar](repeating: 0,  count: Int(size))
         sysctlbyname("hw.machine", &machine, &size, nil, 0)

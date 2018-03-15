@@ -36,6 +36,8 @@
 		1FDC917F1F1A65150046F506 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC917D1F1A65150046F506 /* Application.swift */; };
 		1FDC91801F1A65150046F506 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC917E1F1A65150046F506 /* Device.swift */; };
 		5804E9A4755E642D58301330 /* Pods_MatomoTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DC1BA4812B98CA8037194A /* Pods_MatomoTrackerTests.framework */; };
+		D4AF6CB9205ABA8200236421 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF6CB8205ABA8200236421 /* Content.swift */; };
+		D4AF6CBB205AC07900236421 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF6CBA205AC07900236421 /* UserAgent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		63DC1BA4812B98CA8037194A /* Pods_MatomoTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatomoTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F0C25DEF98C13D32CC46DD /* Pods_PiwikTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiwikTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F688B0F18F298B5E61552AC /* Pods-PiwikTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiwikTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PiwikTrackerTests/Pods-PiwikTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D4AF6CB8205ABA8200236421 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		D4AF6CBA205AC07900236421 /* UserAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgent.swift; sourceTree = "<group>"; };
 		ECADEAA1E653EE3DA30A1FDC /* Pods-MatomoTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatomoTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MatomoTrackerTests/Pods-MatomoTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD284F50B998823EAFB0CEE9 /* Pods-PiwikTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiwikTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PiwikTrackerTests/Pods-PiwikTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +115,7 @@
 		1F0A15CC1E6335CA00FEAE72 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF6CB8205ABA8200236421 /* Content.swift */,
 				1F092C151E225E0200394B30 /* Event.swift */,
 				1F0A15CD1E6335D800FEAE72 /* Visitor.swift */,
 				1F0A15CF1E6335E900FEAE72 /* Session.swift */,
@@ -175,6 +180,7 @@
 				1FD9E01B201B22A8006C3AD3 /* EventSerializer.swift */,
 				1FCA6D3F1DBE0B2F0033F01C /* Info.plist */,
 				1FCA6D3E1DBE0B2F0033F01C /* MatomoTracker.h */,
+				D4AF6CBA205AC07900236421 /* UserAgent.swift */,
 			);
 			path = MatomoTracker;
 			sourceTree = "<group>";
@@ -389,8 +395,10 @@
 				1F092C161E225E0200394B30 /* Event.swift in Sources */,
 				1F092C141E224C3E00394B30 /* MatomoUserDefaults.swift in Sources */,
 				1F6F0CD71E61E35A008170FC /* MatomoTracker.swift in Sources */,
+				D4AF6CBB205AC07900236421 /* UserAgent.swift in Sources */,
 				1F1949F21E17A91100458199 /* MemoryQueue.swift in Sources */,
 				1FDC91801F1A65150046F506 /* Device.swift in Sources */,
+				D4AF6CB9205ABA8200236421 /* Content.swift in Sources */,
 				1F3CA58C1E09A30600121FDC /* Queue.swift in Sources */,
 				1F0A15D01E6335E900FEAE72 /* Session.swift in Sources */,
 				1F092C1A1E26B44500394B30 /* Dispatcher.swift in Sources */,
