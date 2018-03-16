@@ -33,40 +33,44 @@ fileprivate extension Event {
     var queryItems: [URLQueryItem] {
         get {
             let items = [
-            
-            URLQueryItem(name: "ua", value: UserAgent.uaString ?? ""),
-            URLQueryItem(name: "res", value: UserAgent.screenSize),
-            
-            URLQueryItem(name: "idsite", value: siteId),
-            URLQueryItem(name: "rec", value: "1"),
-            // Visitor
-            URLQueryItem(name: "_id", value: visitor.id),
-            URLQueryItem(name: "uid", value: visitor.userId),
-            
-            // Session
-            URLQueryItem(name: "_idvc", value: "\(session.sessionsCount)"),
-            URLQueryItem(name: "_viewts", value: "\(Int(session.lastVisit.timeIntervalSince1970))"),
-            URLQueryItem(name: "_idts", value: "\(Int(session.firstVisit.timeIntervalSince1970))"),
-            
-            URLQueryItem(name: "url", value:url?.absoluteString),
-            URLQueryItem(name: "action_name", value: actionName.joined(separator: "/")),
-            URLQueryItem(name: "lang", value: language),
-            URLQueryItem(name: "urlref", value: referer?.absoluteString),
-            URLQueryItem(name: "new_visit", value: isNewSession ? "1" : nil),
-            
-            URLQueryItem(name: "h", value: DateFormatter.hourDateFormatter.string(from: date)),
-            URLQueryItem(name: "m", value: DateFormatter.minuteDateFormatter.string(from: date)),
-            URLQueryItem(name: "s", value: DateFormatter.secondsDateFormatter.string(from: date)),
-            
-            //screen resolution
-            URLQueryItem(name: "res", value:String(format: "%1.0fx%1.0f", screenResolution.width, screenResolution.height)),
-            
-            URLQueryItem(name: "e_c", value: eventCategory),
-            URLQueryItem(name: "e_a", value: eventAction),
-            URLQueryItem(name: "e_n", value: eventName),
-            URLQueryItem(name: "e_v", value: eventValue != nil ? "\(eventValue!)" : nil),
-            
-            ].filter { $0.value != nil }
+                URLQueryItem(name: "ua", value: UserAgent.uaString),
+                URLQueryItem(name: "res", value: UserAgent.screenSize),
+                
+                URLQueryItem(name: "idsite", value: siteId),
+                URLQueryItem(name: "rec", value: "1"),
+                // Visitor
+                URLQueryItem(name: "_id", value: visitor.id),
+                URLQueryItem(name: "uid", value: visitor.userId),
+                
+                // Session
+                URLQueryItem(name: "_idvc", value: "\(session.sessionsCount)"),
+                URLQueryItem(name: "_viewts", value: "\(Int(session.lastVisit.timeIntervalSince1970))"),
+                URLQueryItem(name: "_idts", value: "\(Int(session.firstVisit.timeIntervalSince1970))"),
+                
+                URLQueryItem(name: "url", value:url?.absoluteString),
+                URLQueryItem(name: "action_name", value: actionName.joined(separator: "/")),
+                URLQueryItem(name: "lang", value: language),
+                URLQueryItem(name: "urlref", value: referer?.absoluteString),
+                URLQueryItem(name: "new_visit", value: isNewSession ? "1" : nil),
+                
+                URLQueryItem(name: "h", value: DateFormatter.hourDateFormatter.string(from: date)),
+                URLQueryItem(name: "m", value: DateFormatter.minuteDateFormatter.string(from: date)),
+                URLQueryItem(name: "s", value: DateFormatter.secondsDateFormatter.string(from: date)),
+                
+                //screen resolution
+                URLQueryItem(name: "res", value:String(format: "%1.0fx%1.0f", screenResolution.width, screenResolution.height)),
+                
+                URLQueryItem(name: "e_c", value: eventCategory),
+                URLQueryItem(name: "e_a", value: eventAction),
+                URLQueryItem(name: "e_n", value: eventName),
+                URLQueryItem(name: "e_v", value: eventValue != nil ? "\(eventValue!)" : nil),
+                
+                // Content
+                URLQueryItem(name: "c_n", value: content?.name),
+                URLQueryItem(name: "c_p", value: content?.contentPiece),
+                URLQueryItem(name: "c_t", value: content?.target),
+                URLQueryItem(name: "c_i", value: content?.interaction)
+                ].filter { $0.value != nil }
             
             let dimensionItems = dimensions.map { URLQueryItem(name: "dimension\($0.index)", value: $0.value) }
             let customItems = customTrackingParameters.map { return URLQueryItem(name: $0.key, value: $0.value) }

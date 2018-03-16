@@ -219,8 +219,6 @@ extension MatomoTracker {
         queue(event: event)
     }
     
-    /// Tracks an event as described here: https://matomo.org/docs/event-tracking/
-    
     /// Track an event as described here: https://matomo.org/docs/event-tracking/
     ///
     /// - Parameters:
@@ -232,6 +230,20 @@ extension MatomoTracker {
     ///   - url: The optional url of the page that was viewed.
     public func track(eventWithCategory category: String, action: String, name: String? = nil, value: Float? = nil, dimensions: [CustomDimension] = [], url: URL? = nil) {
         let event = Event(tracker: self, action: [], url: url, eventCategory: category, eventAction: action, eventName: name, eventValue: value, dimensions: dimensions)
+        queue(event: event)
+    }
+    
+    
+    /// Tracks an event as described  here: https://matomo.org/docs/content-tracking/
+    ///
+    /// - Parameters:
+    ///     - content: The name of the content. For instance 'Ad Foo Bar'
+    ///     - piece: The actual content piece. For instance the path to an image, video, audio, any text
+    ///     - target: The target of the content. For instance the URL of a landing page
+    ///     - interaction: The name of the interaction with the content. For instance a 'click'
+    public func track(eventWithContent content: String, piece: String? = nil, target: String? = nil, interaction: String? = nil) {
+        let content = Content(name: content, contentPiece: piece, target: target, interaction: interaction)
+        let event = Event(tracker: self, action: [], content: content)
         queue(event: event)
     }
 }

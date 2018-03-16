@@ -66,13 +66,15 @@ public struct Event {
     let eventName: String?
     let eventValue: Float?
     
+    let content: Content?
+    
     let dimensions: [CustomDimension]
     
     let customTrackingParameters: [String:String]
 }
 
 extension Event {
-    public init(tracker: MatomoTracker, action: [String], url: URL? = nil, referer: URL? = nil, eventCategory: String? = nil, eventAction: String? = nil, eventName: String? = nil, eventValue: Float? = nil, customTrackingParameters: [String:String] = [:], dimensions: [CustomDimension] = [], variables: [CustomVariable] = []) {
+    public init(tracker: MatomoTracker, action: [String], url: URL? = nil, referer: URL? = nil, eventCategory: String? = nil, eventAction: String? = nil, eventName: String? = nil, eventValue: Float? = nil, customTrackingParameters: [String:String] = [:], dimensions: [CustomDimension] = [], variables: [CustomVariable] = [], content: Content? = nil) {
         self.siteId = tracker.siteId
         self.uuid = NSUUID()
         self.visitor = tracker.visitor
@@ -90,5 +92,6 @@ extension Event {
         self.dimensions = tracker.dimensions + dimensions
         self.customTrackingParameters = customTrackingParameters
         self.customVariables = tracker.customVariables + variables
+        self.content = content
     }
 }
