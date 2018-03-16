@@ -45,6 +45,6 @@ struct UserAgent {
     }
     
     static var screenSize: String {
-        return "\(UIScreen.main.bounds.height)x\(UIScreen.main.bounds.width)"
+        return "\(UIScreen.main.nativeBounds.height)x\(UIScreen.main.nativeBounds.width)"
     }
 }
