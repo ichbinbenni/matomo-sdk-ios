@@ -247,9 +247,14 @@ extension MatomoTracker {
         queue(event: event)
     }
     
-    public func track(eventWithDownload url: String) {
+    
+    /// Tracks an download action as described here https://developer.matomo.org/api-reference/tracking-api
+    ///
+    /// - Parameters:
+    ///    - url: URL of a file the iser has downloaded
+    public func track(eventWithDownload url: URL) {
         let content = Content(name: "download", contentPiece: "\(url)", target: nil, interaction: "click")
-        let event = Event(tracker: self, action: [], url: URL(string: url) ?? nil, content: content, download: url)
+        let event = Event(tracker: self, action: [], url: url, content: content, download: url)
         queue(event: event)
     }
 }
