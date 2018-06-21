@@ -72,7 +72,7 @@ fileprivate extension Event {
                 URLQueryItem(name: "c_i", value: content?.interaction),
                 
                 //Optional Action info
-                URLQueryItem(name: "download", value: "\(String(describing: download))")
+                URLQueryItem(name: "download", value: download)
                 
                 ].filter { $0.value != nil }
             

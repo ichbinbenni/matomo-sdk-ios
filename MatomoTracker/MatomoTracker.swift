@@ -247,9 +247,9 @@ extension MatomoTracker {
         queue(event: event)
     }
     
-    public func track(eventWithDownload url: URL) {
+    public func track(eventWithDownload url: String) {
         let content = Content(name: "download", contentPiece: "\(url)", target: nil, interaction: "click")
-        let event = Event(tracker: self, action: [], url: url, content: content)
+        let event = Event(tracker: self, action: [], url: URL(string: url) ?? nil, content: content)
         queue(event: event)
     }
 }

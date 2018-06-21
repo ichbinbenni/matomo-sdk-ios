@@ -67,7 +67,7 @@ public struct Event {
     let eventValue: Float?
     
     //Optional Action info
-    let download: URL?
+    let download: String?
     
     let content: Content?
     
@@ -77,7 +77,7 @@ public struct Event {
 }
 
 extension Event {
-    public init(tracker: MatomoTracker, action: [String], url: URL? = nil, referer: URL? = nil, eventCategory: String? = nil, eventAction: String? = nil, eventName: String? = nil, eventValue: Float? = nil, customTrackingParameters: [String:String] = [:], dimensions: [CustomDimension] = [], variables: [CustomVariable] = [], content: Content? = nil, download: URL? = nil) {
+    public init(tracker: MatomoTracker, action: [String], url: URL? = nil, referer: URL? = nil, eventCategory: String? = nil, eventAction: String? = nil, eventName: String? = nil, eventValue: Float? = nil, customTrackingParameters: [String:String] = [:], dimensions: [CustomDimension] = [], variables: [CustomVariable] = [], content: Content? = nil, download: String? = nil) {
         self.siteId = tracker.siteId
         self.uuid = NSUUID()
         self.visitor = tracker.visitor
