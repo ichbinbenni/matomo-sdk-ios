@@ -69,7 +69,11 @@ fileprivate extension Event {
                 URLQueryItem(name: "c_n", value: content?.name),
                 URLQueryItem(name: "c_p", value: content?.contentPiece),
                 URLQueryItem(name: "c_t", value: content?.target),
-                URLQueryItem(name: "c_i", value: content?.interaction)
+                URLQueryItem(name: "c_i", value: content?.interaction),
+                
+                //Optional Action info
+                URLQueryItem(name: "download", value: download?.absoluteString)
+                
                 ].filter { $0.value != nil }
             
             let dimensionItems = dimensions.map { URLQueryItem(name: "dimension\($0.index)", value: $0.value) }
