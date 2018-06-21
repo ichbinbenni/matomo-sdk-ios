@@ -246,6 +246,10 @@ extension MatomoTracker {
         let event = Event(tracker: self, action: [], content: content)
         queue(event: event)
     }
+    
+    public func track(eventWithDownload url: URL) {
+        let event = Event(tracker: self, action: [], url: url, eventCategory: <#T##String?#>, eventAction: <#T##String?#>, eventName: <#T##String?#>, eventValue: <#T##Float?#>, customTrackingParameters: <#T##[String : String]#>, dimensions: <#T##[CustomDimension]#>, variables: <#T##[CustomVariable]#>, content: <#T##Content?#>)
+    }
 }
 
 extension MatomoTracker {
